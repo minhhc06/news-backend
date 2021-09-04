@@ -13,7 +13,7 @@ export class News {
     @Column()
     author: string;
 
-    @Column()
+    @Column({ nullable: false })
     id_category: number;
 
 }

@@ -11,7 +11,7 @@ export class CreateNewsDto{
     author: string;
 
     @IsNotEmpty()
-    id_category: string;
+    id_category: number;
 
     
     

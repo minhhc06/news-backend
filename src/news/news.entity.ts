@@ -14,6 +14,6 @@ export class News {
     author: string;
 
     @Column()
-    id_category: string;
+    id_category: number;
 
 }

@@ -2,6 +2,7 @@ import {Body, Controller, Post, Req, UseGuards} from '@nestjs/common';
 import { AuthService } from "./auth.service";
 import { AuthCredentialsDto } from "./dto/auth-credentials.dto";
 import { serialize, deserialize } from 'class-transformer';
+import { AuthGuard } from '@nestjs/passport';
 
 
 @Controller('auth')
@@ -33,4 +34,12 @@ export class AuthController{
           data: token
         };
     }
+
+    @Post('/test')
+    @UseGuards(AuthGuard())
+    test(@Req() req){
+      console.log('vo day');
+      
+    }
+
 }

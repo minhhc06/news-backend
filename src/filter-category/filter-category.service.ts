@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Users } from 'src/auth/user.entitys';
 import { Category } from './filter-category.entity';
 import {FilterCategoryRepository} from './filter-category.repository';
 
@@ -14,8 +15,12 @@ export class FilterCategoryService{
         return this.filterCategoryRepository.getFilter();
     }
 
-    async getCategoryById(id: string, ): Promise<Category>{
+    async getCategoryById(id: string, user: Users): Promise<Category>{
+        
         const found = await this.filterCategoryRepository.findOne(id);
+        found.user;
+        console.log(found.user);
+        
         // const found = await this.filterCategoryRepository.findOne({ where: { id }});
 
         if(!found){

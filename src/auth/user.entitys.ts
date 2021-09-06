@@ -1,3 +1,4 @@
+import { Category } from 'src/filter-category/filter-category.entity';
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
@@ -10,4 +11,8 @@ export class Users{
 
     @Column()
     password: string;
+
+    @OneToMany((_type) => Category, (category) => category.user, { eager: true })
+    category: Category[];
+
 }

@@ -1,7 +1,7 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { News } from './news.entity';
 import { CreateNewsDto } from './dto/news.dto';
-import { InternalServerErrorException } from '@nestjs/common';
+import { InternalServerErrorException , UploadedFile} from '@nestjs/common';
 
 @EntityRepository(News)
 export class NewsRepository extends Repository<News> {
@@ -22,13 +22,22 @@ export class NewsRepository extends Repository<News> {
 }
 
     async createTask(createTaskDto: CreateNewsDto) : Promise<News>{
-        const { title, content, author, id_category } = createTaskDto;
+    
+        
+        const { title, content, author, id_category, image_name  } = createTaskDto;
+
+        // var file = file.filename;
+
+        
+
+        console.log(image_name);
     
         const news = this.create({
           title,
           content,
           author,
-          id_category
+          id_category,
+          image_name
         });
     
         await this.save(news);

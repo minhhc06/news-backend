@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UploadedFile } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { NewsRepository } from './news.repository';
 import { CreateNewsDto } from './dto/news.dto';
@@ -18,6 +18,7 @@ export class NewsService  {
     
 
     createTask(createTaskDto: CreateNewsDto) : Promise<News> {
+    
         return this.newsRepository.createTask(createTaskDto);
     
     }

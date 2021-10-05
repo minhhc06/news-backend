@@ -13,6 +13,7 @@ export class CreateNewsDto{
     @IsNotEmpty()
     id_category: number;
 
-    
-    
+    @IsNotEmpty()
+    image_name: string;
+
 }

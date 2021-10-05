@@ -16,4 +16,7 @@ export class News {
     @Column({ nullable: false, default:1 })
     id_category: number;
 
+    @Column({ nullable: false, default:'' })
+    image_name: string;
+
 }

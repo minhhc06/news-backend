@@ -38,6 +38,7 @@ export class NewsUploadImagesController {
 
     @Get('news-image/:imagename')
     findProfileImage(@Param('imagename') imagename, @Res() res): Observable<Object> {
+        console.log(process.cwd());
         return of(res.sendFile(join(process.cwd(), 'uploads/newsimages/' + imagename)));
     }
 
